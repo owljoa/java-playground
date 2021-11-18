@@ -1,25 +1,18 @@
 package sandwich;
 
-import java.util.EnumSet;
+import static sandwich.code.Cheese.DEFAULT_CHEESE;
+import static sandwich.code.Source.DEFAULT_SOURCE_SET;
+import static sandwich.code.Topping.DEFAULT_TOPPING_SET;
+
 import java.util.Set;
+import sandwich.code.Bread;
+import sandwich.code.Cheese;
+import sandwich.code.Source;
+import sandwich.code.Title;
+import sandwich.code.Topping;
 
 public class Sandwich {
-
-  private static final Cheese DEFAULT_CHEESE = Cheese.AMERICAN;
-  private static final Set<Topping> DEFAULT_TOPPING_SET = EnumSet.of(Topping.ALL);
-  private static final Set<Source> DEFAULT_SOURCE_SET = EnumSet.of(Source.SALT, Source.PEPPER,
-    Source.EXTRA_VIRGIN_OLIVE_OIL);
-
-  public enum Title {TURKEY, STAKE_AND_CHEESE, VEGE, HAM, MEAT_BALL}
-
-  public enum Bread {WHITE, WHEAT, HONEY_OAT, FLAT_BREAD, HEARTY_ITALIAN, PARMESAN_OREGANO}
-
-  public enum Cheese {AMERICAN, SHRED, MOZZARELLA}
-
-  public enum Topping {ALL, LETTUCE, CUCUMBER, PICKLE, OLIVE, JALAPENO, TOMATO, PIMENTO}
-
-  public enum Source {HOT_CHILI, SWEET_CHILI, SWEET_ONION, SALT, PEPPER, EXTRA_VIRGIN_OLIVE_OIL}
-
+  
   private final Title title; // 필수
   private final Bread bread; // 필수
   private final Cheese cheese;

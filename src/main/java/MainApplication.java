@@ -1,11 +1,11 @@
 import java.util.EnumSet;
 import java.util.List;
 import sandwich.Sandwich;
-import sandwich.Sandwich.Bread;
-import sandwich.Sandwich.Cheese;
-import sandwich.Sandwich.Source;
-import sandwich.Sandwich.Title;
-import sandwich.Sandwich.Topping;
+import sandwich.code.Bread;
+import sandwich.code.Cheese;
+import sandwich.code.Source;
+import sandwich.code.Title;
+import sandwich.code.Topping;
 
 public class MainApplication {
 
