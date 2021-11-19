@@ -1,6 +1,8 @@
 import java.util.EnumSet;
 import java.util.List;
 import sandwich.Sandwich;
+import sandwich.SandwichByBuilder;
+import sandwich.SandwichByBuilder.SandwichBuilder;
 import sandwich.SandwichByJavaBeans;
 import sandwich.code.Bread;
 import sandwich.code.Cheese;
@@ -19,6 +21,9 @@ public class MainApplication {
 
     System.out.println("===============================================");
     System.out.println("Sandwiches by Java Beans Pattern: " + makeSandwichesWithJavaBeansPattern());
+
+    System.out.println("===============================================");
+    System.out.println("Sandwiches by Builder Pattern: " + makeSandwichesWithBuilderPatten());
   }
 
   private static List<Sandwich> makeSandwichesWithTelescopingConstructorPatten() {
@@ -57,5 +62,24 @@ public class MainApplication {
       EnumSet.of(Source.SALT, Source.PEPPER, Source.EXTRA_VIRGIN_OLIVE_OIL));
 
     return List.of(myMeatBallSandwich, yourStakeAndCheeseSandwich);
+  }
+
+  private static List<SandwichByBuilder> makeSandwichesWithBuilderPatten() {
+
+    SandwichByBuilder mySandwich = new SandwichBuilder(Title.VEGE, Bread.WHEAT)
+      .cheese(Cheese.SHRED)
+      .heatBread(true)
+      .topping(EnumSet.of(Topping.LETTUCE, Topping.PICKLE, Topping.OLIVE))
+      .source(EnumSet.of(Source.HOT_CHILI, Source.SWEET_ONION))
+      .build();
+
+    SandwichByBuilder yourSandwich = new SandwichBuilder(Title.STAKE_AND_CHEESE, Bread.FLAT_BREAD)
+      .cheese(Cheese.MOZZARELLA)
+      .heatBread(false)
+      .topping(EnumSet.of(Topping.LETTUCE, Topping.CUCUMBER, Topping.JALAPENO))
+      .source(EnumSet.of(Source.HOT_CHILI, Source.PEPPER))
+      .build();
+
+    return List.of(mySandwich, yourSandwich);
   }
 }
